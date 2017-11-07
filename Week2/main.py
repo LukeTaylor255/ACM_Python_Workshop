@@ -1,5 +1,3 @@
-import mymath
-
 if __name__ == "__main__":
     print("Enter a command:")
     command = input()
@@ -8,7 +6,7 @@ if __name__ == "__main__":
             val = input()
             if(val == "exit"):
                 exit(0)
-            print(mymath.math.sin(float(val)))
+            print(Week2.mymath.math.sin(float(val)))
     else:
-        sq = mymath.shapes.Square(3)
+        sq = Week2.mymath.shapes.Square(3)
         print(sq.area())
