@@ -15,7 +15,8 @@ if __name__ == "__main__":
             sq = Week2.mymath.shapes.Square(val)
             print(sq.area())
         elif("help" in command):
-            print("Type sin for a demo of sine, square for a demo of a square's area, except for a demo of exceptions, or exit to quit.")
+            print("Type sin for a demo of sine, square for a demo of a square's area\
+            , except for a demo of exceptions, or exit to quit.")
         elif("exit" in command):
             exit(0)
         else:
