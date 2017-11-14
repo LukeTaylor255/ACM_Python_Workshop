@@ -1,6 +1,7 @@
 from flask import Flask, send_from_directory, render_template, session, request, redirect
+import hashlib
 app = Flask(__name__)
-
+app.config.from_json("mysettings.json")  # Load settings from external file - includes root PW
 
 @app.route("/static/<path:path>")  # Static files like JS and CSS are mapped to the /static directory
 def static_file(path):
@@ -21,7 +22,7 @@ def login():
     error = None  # assume no error
     success = None  # assume no success
     if(request.method == "POST"):
-        if(request.form["pw"] == "mypassword"):  # Check that the PW matches the form input - warning: not most secure implementation
+        if(hashlib.sha3_256(request.form["pw"].encode('UTF-8')).hexdigest() == app.config["ROOT_PW_HASH"]):  # Check that the PW matches the form input - warning: not most secure implementation
             session["username"] = request.form["un"]  # Get the input with name "un" from the form data
             success = "You are now logged in."  # Set success to true
         else:
