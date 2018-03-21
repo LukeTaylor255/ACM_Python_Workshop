@@ -3,6 +3,11 @@ def sqrt(x):
 
 
 def factorial(x):
+    if(x<=1):
+        return 1
+    return factorial(x-1)*x
+
+def factorial(x):
     ans = 1
     for k in range(x):
         ans *= k+1

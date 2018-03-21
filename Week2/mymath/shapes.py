@@ -16,7 +16,6 @@ class Rectangle:
     def perimeter(self):
         return self.width*2 + self.height*2
 
-
 class Square(Rectangle):
     def __init__(self, edge_length):
         self.width = edge_length
